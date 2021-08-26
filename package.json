@@ -55,7 +55,7 @@
     "webpack-dev-server": "^4.0.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && echo 'www.locationsofinterest.co.nz' > ./dist/CNAME",
     "deploy": "gh-pages -d dist",
     "build": "npx webpack --config webpack.config.js",
     "start": "./node_modules/.bin/webpack-dev-server --port 8080 --host 0.0.0.0 --mode development",

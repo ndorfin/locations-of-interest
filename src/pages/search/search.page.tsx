@@ -151,7 +151,17 @@ export const SearchPage: React.FunctionComponent<ISearchPageProps> = ({ location
       <SearchCriteria locations={locations} onChange={setSearchCriteria} ref={setSearchRef} />
 
       <Controls
-        onSearch={filterLocations}
+        onSearch={() => {
+          filterLocations();
+
+          const sideBySide = document.getElementById("sideBySide");
+          if (sideBySide) {
+            Array.from(document.querySelectorAll("html,body"))
+            .forEach((el) => {
+              el.scrollTo(0, sideBySide.offsetTop - 100);
+            });
+          }
+        }}
         onReset={resetFilters}
         onSetelectedBlock={setSelectedBlock}
         selectedBlock={selectedBlock} />

@@ -19,7 +19,7 @@ export class SideBySide extends AppComponent<ISideBySideProps> {
         this.props.selectedBlock ? "sideBySide--has-selected" : "sideBySide--none-selected",
         this.props.selectedBlock === 1 && "sideBySide--content1",
         this.props.selectedBlock === 2 && "sideBySide--content2",
-      ].filter((c) => !!c).join(" ")}>
+      ].filter((c) => !!c).join(" ")} id="sideBySide">
         <div className={[
           "sideBySide__block",
           this.props.selectedBlock !== 1 && "sideBySide__block--default-hidden",

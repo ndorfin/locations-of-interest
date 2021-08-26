@@ -59,8 +59,6 @@ export const Map: React.FunctionComponent<IMapProps> = ({ locations, onMarkerCli
 
           marker.addListener("click", async () => {
             onMarkerClick(location);
-            map.setZoom(10);
-            map.setCenter(marker.getPosition() as google.maps.LatLng);
           });
 
           return marker;

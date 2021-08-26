@@ -3,7 +3,6 @@ import * as React from "react";
 import "./navbar.scss";
 
 import { Logo } from "../logo/logo.component";
-import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const variation = window.location.search.includes("syl=true") ? "SYL" : "LOI";
@@ -14,7 +13,7 @@ export const Navbar = () => {
         <Logo variation={variation} className="nav__logo__image" />
       </div>
 
-      <ul className="nav__links">
+      {/* <ul className="nav__links">
         <li className="nav__links__item">
           <NavLink
             to="/"
@@ -22,7 +21,7 @@ export const Navbar = () => {
             className="nav__links__item__link"
             activeClassName="nav__links__item__link--active">Search Locations</NavLink>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

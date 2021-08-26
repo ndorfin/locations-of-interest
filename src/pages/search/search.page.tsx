@@ -1,4 +1,5 @@
 import * as React from "react";
+import moment from "moment";
 
 import { Page } from "../../component/page/page.component";
 import { SearchShoutout } from "../../component/searchShoutout/searchShoutout.component";
@@ -12,7 +13,7 @@ import { GuidelinesCallout } from "../../component/guidelinesCallout/guidelinesC
 import { Footer } from "../../component/footer/footer.component";
 import { ILocationOfInterest } from "../../interface/ILocationOfInterest.interface";
 import { Message } from "../../component/message/message.component";
-import moment from "moment";
+import { Event } from "../../component/event/event.component";
 
 export interface ISearchPageProps {
   locations: ILocationOfInterest[];
@@ -23,6 +24,7 @@ export const SearchPage: React.FunctionComponent<ISearchPageProps> = ({ location
   const [selectedBlock, setSelectedBlock] = React.useState(0);
   const [searchRef, setSearchRef] = React.useState<ISearchCriteriaFunctions | null>();
 
+  const [selectedLocation, setSelectedLocation] = React.useState<ILocationOfInterest | null>(null);
   const [filteredLocations, setFilteredLocations] = React.useState(locations);
 
   const formatDate = (input: string): moment.Moment => {
@@ -140,6 +142,11 @@ export const SearchPage: React.FunctionComponent<ISearchPageProps> = ({ location
     }
   }, [searchRef]);
 
+  const viewDetails = (location: ILocationOfInterest) => {
+    setSelectedBlock(3);
+    setSelectedLocation(location);
+  };
+
   React.useEffect(() => {
     filterLocations();
   }, [searchCriteria]);
@@ -168,11 +175,22 @@ export const SearchPage: React.FunctionComponent<ISearchPageProps> = ({ location
 
       <SideBySide
         selectedBlock={selectedBlock}
-        content1={<Map locations={filteredLocations} />}
+        content1={<Map locations={filteredLocations} onMarkerClick={viewDetails} />}
         content2={
           filteredLocations.length === 0
             ? <Message>{"No locations were found based on your query."}</Message>
             : <Table locations={filteredLocations} searchTerm={searchCriteria && searchCriteria.searchTerm || ""} />
+        }
+        content3={
+          selectedLocation
+            ?
+              <Event
+                location={selectedLocation}
+                onBackClick={() => {
+                  setSelectedBlock(1);
+                  setSelectedLocation(null);
+                }} />
+            : null
         }
       />
 

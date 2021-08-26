@@ -1,7 +1,7 @@
 import * as React from "react";
-import moment from "moment";
 
 import { ILocationOfInterest } from "../../interface/ILocationOfInterest.interface";
+import { displayDate } from "../../service/displayDate.service";
 
 import "./table.scss";
 
@@ -12,25 +12,6 @@ export interface ITableProps {
 
 export const Table: React.FunctionComponent<ITableProps> = ({ locations, searchTerm }) => {
   const healthlinePhone = "0800611116";
-
-  const dateInputFormat = [
-    "DD/MM/YYYY HH:mm",
-    "YYYY-MM-DD HH:mm:ss"
-  ];
-
-  const displayDate = (input: string, format?: string) => {
-    if (!input) {
-      return "Unknown";
-    }
-
-    const selectedFormat = dateInputFormat[
-      input.includes("-") ? 1 : 0
-    ];
-
-    const momentValue = moment(input, selectedFormat);
-
-    return momentValue.format(format || "dddd DD MMMM h:mm a");
-  }
 
   const displayWithSeachTerm = (input: string) => {
     const offsetOfText = input.toLowerCase().indexOf(searchTerm.toLowerCase());

@@ -82,7 +82,7 @@ export const SearchCriteria =
 
     const orderByOptions = [
       {
-        label: "Date added",
+        label: "Date added (newest first)",
         value: OrderBy.DateAdded,
       },
       {
@@ -91,7 +91,7 @@ export const SearchCriteria =
       },
 
       {
-        label: "Event date",
+        label: "Event date (newest first)",
         value: OrderBy.EventDate,
       },
       {
@@ -100,7 +100,15 @@ export const SearchCriteria =
       },
     ];
 
-    const regionList = locations.map((region) => region.properties.City).filter((v, i, l) => l.indexOf(v) === i && v);
+    const regionList =
+      locations
+        .map((region) => region.properties.City).filter((v, i, l) => l.indexOf(v) === i && v)
+        .sort((rA, rB) => {
+          if (rA > rB) return 1;
+          if (rA < rB) return -1;
+          return 0;
+        });
+
     const regionsList = regionList.map((region) => ({
       label: region,
       value: region,
@@ -157,7 +165,8 @@ export const SearchCriteria =
               value={regions.map((region) => ({
                 label: region,
                 value: region,
-              }))} />
+              }))}
+              noOptionsMessage={() => "Region not found. Please check your spelling. The region select only includes those with reported locations of interest."} />
           </div>
 
           <div className="searchCriteria__list__item searchCriteria__list__item--event-date">

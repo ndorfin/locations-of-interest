@@ -9,9 +9,10 @@ const DISABLE_MAP = window.location.hostname === "localhost";
 
 export interface IMapProps {
   locations: ILocationOfInterest[];
+  onMarkerClick: (location: ILocationOfInterest) => void;
 }
 
-export const Map: React.FunctionComponent<IMapProps> = ({ locations }) => {
+export const Map: React.FunctionComponent<IMapProps> = ({ locations, onMarkerClick }) => {
   if (DISABLE_MAP) {
     return <Message>Map temporarily disabled.</Message>;
   }
@@ -50,11 +51,20 @@ export const Map: React.FunctionComponent<IMapProps> = ({ locations }) => {
   React.useEffect(() => {
     if (map) {
       const newMarkers =
-        locations.map((location) =>
-          new google.maps.Marker({
+        locations.map((location) => {
+          const marker = new google.maps.Marker({
             position: new google.maps.LatLng(location.geometry.coordinates[1], location.geometry.coordinates[0]),
             map,
-          }));
+          });
+
+          marker.addListener("click", async () => {
+            onMarkerClick(location);
+            map.setZoom(10);
+            map.setCenter(marker.getPosition() as google.maps.LatLng);
+          });
+
+          return marker;
+        });
 
       setMarkers((ms) => {
         ms.forEach((m) => m.setMap(null));

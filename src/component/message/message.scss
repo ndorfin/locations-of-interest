@@ -5,6 +5,8 @@
   width: 100%;
 
   &__caption {
+    box-sizing: border-box;
+    padding: 50px;
     position: absolute;
     text-align: center;
     top: 50%;

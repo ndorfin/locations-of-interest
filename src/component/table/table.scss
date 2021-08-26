@@ -36,4 +36,9 @@
       }
     }
   }
+
+  &__highlight {
+    background: $table-highlight-colour;
+    color: #000;
+  }
 }

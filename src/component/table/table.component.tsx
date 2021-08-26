@@ -40,7 +40,7 @@ export const Table: React.FunctionComponent<ITableProps> = ({ locations, searchT
     const matchedText = input.substring(offsetOfText, offsetOfText + searchTerm.length);
     const textAfterIndex = input.substring(offsetOfText + searchTerm.length);
 
-    return <>{textPriorToIndex}<strong>{matchedText}</strong>{textAfterIndex}</>;
+    return <>{textPriorToIndex}<span className="table__highlight">{matchedText}</span>{textAfterIndex}</>;
   };
 
   return (
@@ -64,8 +64,12 @@ export const Table: React.FunctionComponent<ITableProps> = ({ locations, searchT
                 <td>{displayWithSeachTerm(location.properties.Location)}</td>
                 <td>{displayDate(location.properties.Start)} – {displayDate(location.properties.End, "h:mm a")}</td>
                 <td dangerouslySetInnerHTML={{
-                  __html: location.properties.Advice.replace("Call Healthline", `<a href="tel:${healthlinePhone}" class="table__table__healthline">Call Healthline</a>`),
-                }}></td>
+                  __html:
+                    location.properties.Advice
+                    .replace("Call Healthline", `<a href="tel:${healthlinePhone}" class="table__table__healthline">Call Healthline</a>`)
+                    .replace("Isolate", `<strong>Isolate</strong>`)
+                    .replace("isolate", `<strong>isolate</strong>`),
+                  }}></td>
                 <td>{displayDate(location.properties.Added, "DD MMM h:mm a")}</td>
               </tr>)
           }

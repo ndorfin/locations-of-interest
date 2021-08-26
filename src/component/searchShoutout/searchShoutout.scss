@@ -1,0 +1,10 @@
+@import "../../styles/vars";
+
+.searchShoutout {
+  font-family: $shoutout-font-family;
+  margin: 0 0 32px;
+
+  &__title {
+    font-weight: 500;
+  }
+}

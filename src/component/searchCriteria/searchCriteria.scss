@@ -1,0 +1,109 @@
+@import "../../styles/vars";
+
+.searchCriteria {
+  font-family: $criteria-font-family;
+  margin: 0 0 32px;
+
+  &__list {
+    display: grid;
+    gap: 24px;
+    grid-template-areas:
+      "term term order regions"
+      "date date added added";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 850px;
+
+    &__item {
+      &__label {
+        display: block;
+        font-weight: 500;
+        margin: 0 0 4px 0;
+
+        &--muted {
+          font-weight: normal;
+        }
+      }
+
+      &__input {
+        background: #fafafa;
+        border: 1px solid #d8d8d8;
+        border-radius: 4px;
+        box-sizing: border-box;
+        height: 38px;
+        padding: 8px 12px;
+        width: 100%;
+
+        &:focus {
+          background: #fff;
+        }
+      }
+
+      &__select {
+        &__control {
+          background: #fafafa !important;
+        }
+
+        &__single-value,
+        &__placeholder {
+          color: #231f20 !important;
+        }
+      }
+
+      &__split {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+
+        @include breakpoint(sm) {
+          gap: 16px;
+        }
+      }
+
+      &--search-term {
+        grid-area: term;
+      }
+
+      &--order-by {
+        grid-area: order;
+      }
+
+      &--regions {
+        grid-area: regions;
+      }
+
+      &--event-date {
+        grid-area: date;
+      }
+
+      &--added-date {
+        grid-area: added;
+      }
+    }
+
+    @include breakpoint(sm) {
+      gap: 16px;
+      grid-template-areas:
+        "term term term term"
+        "order order regions regions"
+        "date date date date"
+        "added added added added";
+    }
+  }
+
+  .react-datepicker {
+    border: none;
+    font-family: $criteria-font-family;
+
+    &__header {
+      background: $criteria-date-header;
+    }
+
+    &__day {
+      &--keyboard-selected {
+        background: $theme-colour;
+        color: #000;
+      }
+    }
+  }
+}

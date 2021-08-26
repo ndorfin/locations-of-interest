@@ -1,33 +1,28 @@
 import * as React from "react";
-import { ReactNode } from "react";
+
+import "./navbar.scss";
+
+import { Logo } from "../logo/logo.component";
 import { NavLink } from "react-router-dom";
 
-import "../../styles/main.scss";
+export const Navbar = () => {
+  const variation = window.location.search.includes("syl=true") ? "SYL" : "LOI";
 
-import { AppComponent } from "../appComponent/appComponent.component";
+  return (
+    <nav className="nav">
+      <div className="nav__logo">
+        <Logo variation={variation} className="nav__logo__image" />
+      </div>
 
-export interface INavbarProps {
-  linkOnClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-}
-
-export class Navbar extends AppComponent<INavbarProps> {
-  public render(): ReactNode {
-    return (
-      <nav className="nav">
-        <NavLink
-          to="/"
-          exact
-          className="nav-link"
-          activeClassName="active"
-          onClick={this.props.linkOnClick?.bind(this)}>Index</NavLink>
-
-        <NavLink
-          to="/page2"
-          exact
-          className="nav-link"
-          activeClassName="active"
-          onClick={this.props.linkOnClick?.bind(this)}>Page2</NavLink>
-      </nav>
-    );
-  }
+      <ul className="nav__links">
+        <li className="nav__links__item">
+          <NavLink
+            to="/"
+            exact
+            className="nav__links__item__link"
+            activeClassName="nav__links__item__link--active">Search Locations</NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
 }

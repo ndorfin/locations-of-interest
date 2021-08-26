@@ -1,0 +1,28 @@
+@import "../../styles/vars";
+
+.guidelines-callout {
+  background: $callout-background;
+  border-radius: 16px;
+  font-family: $callout-font-family;
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 1.3;
+  margin: 0 0 32px;
+  padding: 32px 64px;
+  text-align: center;
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__text {
+    &__link {
+      color: inherit;
+    }
+  }
+
+  @include breakpoint(sm) {
+    font-size: 1.5rem;
+    padding: 16px 32px;
+  }
+}

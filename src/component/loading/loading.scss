@@ -1,0 +1,20 @@
+@import "../../styles/vars";
+
+.loading {
+  position: relative;
+  width: 100%;
+
+  &__logo {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__caption {
+    bottom: 16px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+}

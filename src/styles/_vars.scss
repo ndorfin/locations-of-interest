@@ -1,0 +1,22 @@
+@import "./breakpoint.scss";
+
+$font-family: "Baloo 2";
+
+$theme-colour: #fc0;
+$theme-colour-light: #ffeb99;
+
+$navbar-background: $theme-colour;
+$navbar-font-family: $font-family;
+
+$shoutout-font-family: $font-family;
+
+$table-font-family: $font-family;
+$table-header-colour: $theme-colour-light;
+
+$criteria-font-family: $font-family;
+$criteria-date-header: $theme-colour-light;
+
+$callout-background: $theme-colour;
+$callout-font-family: $font-family;
+
+$footer-font-family: $font-family;

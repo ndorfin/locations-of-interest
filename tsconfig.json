@@ -4,6 +4,7 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noImplicitAny": true,
@@ -35,6 +36,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.tsx",
     "node_modules/@types",
     "*.d.ts",
   ]

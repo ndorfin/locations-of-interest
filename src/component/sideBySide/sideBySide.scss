@@ -1,0 +1,35 @@
+@import "../../styles/vars";
+
+.sideBySide {
+  display: grid;
+  font-family: $shoutout-font-family;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 0 32px;
+
+  &__block {
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 750px;
+    overflow: hidden;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &--has-selected {
+    grid-template-columns: 1fr;
+  }
+
+  @include breakpoint(sm) {
+    grid-template-columns: 1fr;
+
+    &__block {
+      &--default-hidden {
+        display: none;
+      }
+    }
+  }
+}

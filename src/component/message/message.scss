@@ -1,0 +1,18 @@
+@import "../../styles/vars";
+
+.message {
+  position: relative;
+  width: 100%;
+
+  &__caption {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    a {
+      color: #000;
+    }
+  }
+}

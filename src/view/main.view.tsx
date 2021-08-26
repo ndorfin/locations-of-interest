@@ -1,22 +1,49 @@
 import * as React from "react";
-import { ReactNode } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import "normalize.css";
 
 import "../styles/main.scss";
 
-import { AppComponent } from "../component/appComponent/appComponent.component";
-import { Page } from "../component/page/page.component";
+import { ILocationOfInterest } from "../interface/ILocationOfInterest.interface";
 
-export class MainView extends AppComponent {
-  public render(): ReactNode {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact render={() => <Page>Index</Page>} />
-          <Route path="/page2" exact render={() => <Page>Page2</Page>} />
-          <Redirect to="/" />
-        </Switch>
-      </BrowserRouter>
-    );
+import { SearchPage } from "../pages/search/search.page";
+import { LoadingPage } from "../pages/loading/loading.page";
+import { ErrorPage } from "../pages/error/error.page";
+
+export const MainView = () => {
+  const [locations, setLocations] = React.useState<ILocationOfInterest[]>([]);
+  const [error, setError] = React.useState(false);
+
+  React.useEffect(() => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `https://raw.githubusercontent.com/minhealthnz/nz-covid-data/main/locations-of-interest/august-2021/locations-of-interest.geojson?_=${Date.now()}`, true);
+    xhr.responseType = "json";
+
+    xhr.onload = () => {
+      const status = xhr.status;
+      if (status === 200) {
+        setLocations(xhr.response.features);
+      } else {
+        setError(true);
+      }
+    };
+    xhr.send();
+  }, []);
+
+  if (error) {
+    return <ErrorPage />;
   }
+
+  if (locations.length === 0) {
+    return <LoadingPage />;
+  }
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact render={() => <SearchPage locations={locations} />} />
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
+  );
 }

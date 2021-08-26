@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -54,7 +55,7 @@ module.exports = {
 
       {
         test: /\.tsx?$/,
-        loader: "awesome-typescript-loader",
+        loader: "ts-loader",
         exclude: "/node_modules/"
       },
 
@@ -112,6 +113,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: __dirname + "/src/index.ejs",
       inject: "body"
-    })
+    }),
+    new CopyWebpackPlugin({
+      'patterns': [{
+        from: "./src/assets/",
+        to: "./assets",
+      }],
+    }),
   ]
 }

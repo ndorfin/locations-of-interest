@@ -1,36 +1,13 @@
-# blank-react
+# Locations of Interest
 
-## [React](https://reactjs.org/)
-A JavaScript library for building user interfaces
+[www.locationsofinterest.co.nz](https://locationsofinterest.co.nz/?ref=github.readme)
 
-### Features
-#### [TypeScript](https://www.typescriptlang.org)
-Source written in TypeScript.
+During Level 4 lockdown, we started this project to build something that would be useful to ourselves and many others and plug a gap in our COVID-19 response. We found it difficult to find relevant locations of interest in the collection of hundreds. We could search, but as Wellingtonians we often got tired of sifting through "Mount Wellington" locations.
 
-#### [Sass Loader](https://github.com/webpack-contrib/sass-loader#readme)
-Loads a [Sass/SCSS](https://sass-lang.com/) file and compiles it to CSS.
+Locations of Interest is a site aimed to help you find the important COVID exposure information you need to know, faster.
 
-#### [React Router](https://github.com/ReactTraining/react-router#readme)
-Provides routing support.
+Using the Ministry of Health's locations of interest data, this tool allows you to better search, filter and sort for what's relevant to you, all neatly tied into a side-by-side map and table view.
 
-#### [Reflux](https://github.com/reflux/refluxjs#readme)
-A simple library for unidirectional dataflow architecture inspired by ReactJS [Flux](https://reactjs.org/blog/2014/05/06/flux.html).
+The site automatically updates with new locations of interest data from a GitHub repo maintained and updated by the Ministry of Health.
 
-#### [Bootstrap](https://getbootstrap.com/)
-Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
-
-## [Storybook](https://storybook.js.org/)
-Storybook is an open source tool for developing UI components in isolation for React, Vue, and Angular. It makes building stunning UIs organized and efficient.
-
-### Features
-#### [@storybook/addon-knobs](https://github.com/storybookjs/storybook/tree/master/addons/knobs)
-Storybook Addon Knobs allow you to edit props dynamically using the Storybook UI. You can also use Knobs as a dynamic variable inside stories in Storybook.
-
-#### [@storybook/addon-actions](https://github.com/storybookjs/storybook/tree/master/addons/actions)
-Storybook Addon Actions can be used to display data received by event handlers in Storybook.
-
-#### [@storybook/addon-docs](https://github.com/storybookjs/storybook/tree/master/addons/docs)
-Storybook Docs transforms your Storybook stories into world-class component documentation.
-
-#### [@storybook/addon-viewport](https://github.com/storybookjs/storybook/tree/master/addons/viewport)
-Storybook Viewport Addon allows your stories to be displayed in different sizes and layouts in Storybook. This helps build responsive components inside of Storybook.
+This project is made by two local Wellington software developers and is not affiliated with the Ministry of Health or Unite Against COVID - just a fun project to help our fellow Kiwis. 💛

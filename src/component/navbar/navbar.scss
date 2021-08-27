@@ -32,7 +32,7 @@
 
       &__link {
         color: #000;
-        font-weight: 600;
+        font-weight: 400;
         position: relative;
         text-decoration: none;
 
@@ -49,6 +49,8 @@
         }
 
         &--active {
+          font-weight: 600;
+
           &::after {
             bottom: -8px;
             height: 3px;
@@ -61,16 +63,13 @@
   }
 
   @include breakpoint(sm) {
-    background: none !important;
-    padding: 0 !important;
+    padding: 20px;
     text-align: center;
 
     &__logo {
-      background: $navbar-background;
       border-radius: 16px;
       display: block;
       margin: 0 auto 16px;
-      padding: 20px;
 
       &__image {
         max-width: 100%;
@@ -79,7 +78,13 @@
     }
 
     &__links {
-      display: none;
+      left: 0;
+      position: relative;
+      transform: none;
+
+      &__item {
+        margin: 16px 32px;
+      }
     }
   }
 }

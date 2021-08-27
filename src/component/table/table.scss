@@ -32,13 +32,13 @@
       }
 
       &:nth-child(odd) {
-        background: #ededed;
+        background: $colour-pale-grey;
       }
     }
   }
 
   &__highlight {
     background: $table-highlight-colour;
-    color: #000;
+    color: $colour-black;
   }
 }

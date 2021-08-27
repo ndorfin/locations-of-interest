@@ -18,8 +18,8 @@
       padding: 16px;
 
       &--dark {
-        background: #231f20;
-        color: #fff;
+        background: $colour-black;
+        color: $colour-white;
       }
 
       +.controls__items__button {

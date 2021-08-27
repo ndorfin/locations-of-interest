@@ -5,7 +5,7 @@
     margin: 16px 0 48px;
 
     &::after {
-      background: #d8d8d8;
+      background: $colour-mid-grey;
       content: "";
       display: block;
       height: 1px;
@@ -42,7 +42,7 @@
     }
 
     &__links {
-      color: #000;
+      color: $colour-black;
       margin: 4px 0 8px;
 
       &__item {
@@ -54,7 +54,7 @@
   }
 
   &__repo {
-    color: #000;
+    color: $colour-black;
     margin: 32px 0 0;
 
     &__link {

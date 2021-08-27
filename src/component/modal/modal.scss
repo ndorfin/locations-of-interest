@@ -4,7 +4,7 @@
   font-family: $modal-font-family;
 
   &__backdrop {
-    background: #000;
+    background: $colour-black;
     cursor: pointer;
     height: 100%;
     left: 0;
@@ -29,9 +29,9 @@
     z-index: 1001;
 
     &__content {
-      background: #fff;
+      background: $colour-white;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: $panel-shadow;
       display: flex;
       flex: 1;
       flex-direction: column;

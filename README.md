@@ -36,3 +36,8 @@ To start the local development server:
 npm start
 ```
 
+### Build
+
+```bash
+npm run build
+```

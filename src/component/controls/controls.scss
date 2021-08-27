@@ -1,3 +1,4 @@
+@import "../../styles/mixins";
 @import "../../styles/vars";
 
 .controls {
@@ -9,13 +10,7 @@
 
   &__items {
     &__button {
-      background: #d8d8d8;
-      border: none;
-      border-radius: 4px;
-      color: #000;
-      cursor: pointer;
-      font-weight: normal;
-      padding: 16px;
+      @include base-button;
 
       &--dark {
         background: $colour-black;

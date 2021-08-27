@@ -4,13 +4,6 @@
   "description": "locations-of-interest",
   "main": "index.js",
   "dependencies": {
-    "@storybook/addon-actions": "^6.3.7",
-    "@storybook/addon-docs": "^6.3.7",
-    "@storybook/addon-knobs": "^6.3.0",
-    "@storybook/addon-viewport": "^6.3.7",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react": "^6.3.7",
     "@types/bootstrap": "^4.5.0",
     "@types/history": "^4.7.6",
     "@types/moment": "^2.13.0",
@@ -59,12 +52,13 @@
     "deploy": "gh-pages -d dist",
     "build": "npx webpack --config webpack.config.js",
     "start": "./node_modules/.bin/webpack-dev-server --port 8080 --host 0.0.0.0 --mode development",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -p 6006",
     "lint": "npm run tslint && npm run typecheck && npm run style-lint",
     "tslint": "./node_modules/.bin/tslint --project ./tsconfig.json",
     "style-lint": "npx stylelint \"./src/**/*.scss\"",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "test": "echo no tests yet"
+    "test": "echo no tests yet",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -77,6 +71,11 @@
   },
   "homepage": "https://locationsofinterest.co.nz",
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@types/google.maps": "^3.45.6",
     "file-loader": "^6.2.0",
     "gh-pages": "^3.2.3"

@@ -4,8 +4,11 @@
     "jsRules": {},
     "rules": {
       "max-line-length": [
-        true,
-        { "limit": 120, "ignore-pattern": "^import |^export {(.*?)}" }
+        false,
+        {
+          "limit": 120,
+          "ignore-pattern": "^import |^export {(.*?)}"
+        }
       ],
       "object-literal-sort-keys": false,
       "trailing-comma": [

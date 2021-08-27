@@ -11,7 +11,7 @@ export class GuidelinesCallout extends AppComponent {
       <section className="guidelines-callout">
         <p className="guidelines-callout__text">
           {"If you have been at any of these locations of interest during the relevant time, please follow the "}
-          <a href="https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus" target="_blank" rel="noopener" className="guidelines-callout__text__link">
+          <a href="https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-health-advice-public/contact-tracing-covid-19/covid-19-contact-tracing-locations-interest" target="_blank" rel="noopener" className="guidelines-callout__text__link">
             {"NZ Ministry of Health’s guidelines"}
           </a>
           {"."}</p>

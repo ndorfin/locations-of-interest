@@ -44,6 +44,7 @@ export class Footer extends AppComponent {
           <li className="footer__links__item">
             <a
               href="https://www.locationsofinterest.co.nz"
+              target="_top"
               className="footer__links__item__link">www.locationsofinterest.co.nz</a>
           </li>
 

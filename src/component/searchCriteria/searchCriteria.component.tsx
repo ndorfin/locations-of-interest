@@ -170,7 +170,7 @@ export const SearchCriteria =
           </div>
 
           <div className="searchCriteria__list__item searchCriteria__list__item--event-date">
-            <span className="searchCriteria__list__item__label">Time of exposure event</span>
+            <span className="searchCriteria__list__item__label">Date of exposure event</span>
 
             <div className="searchCriteria__list__item__split">
               <div className="searchCriteria__list__item__split__item">
@@ -204,7 +204,7 @@ export const SearchCriteria =
           </div>
 
           <div className="searchCriteria__list__item searchCriteria__list__item--added-date">
-            <span className="searchCriteria__list__item__label">Time location of interest added to list</span>
+            <span className="searchCriteria__list__item__label">Date location of interest added to list</span>
 
             <div className="searchCriteria__list__item__split">
               <div className="searchCriteria__list__item__split__item">

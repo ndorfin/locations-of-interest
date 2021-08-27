@@ -112,7 +112,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: __dirname + "/src/index.ejs",
-      inject: "body"
+      inject: "body",
+      minify: false,
     }),
     new CopyWebpackPlugin({
       'patterns': [{

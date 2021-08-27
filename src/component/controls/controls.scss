@@ -13,8 +13,7 @@
       @include base-button;
 
       &--dark {
-        background: $colour-black;
-        color: $colour-white;
+        @include dark-button;
       }
 
       +.controls__items__button {

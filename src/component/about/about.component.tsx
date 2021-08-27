@@ -72,7 +72,7 @@ export const About: React.FunctionComponent = () => {
           <span className="about__profile__name__image">🇳🇿</span>
           <h4
             className="about__profile__name__name">
-            Team of 4 Million
+            Team of 5 Million
           </h4>
         </div>
       </div>

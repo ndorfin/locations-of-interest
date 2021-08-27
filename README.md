@@ -2,6 +2,8 @@
 
 [www.locationsofinterest.co.nz](https://locationsofinterest.co.nz/?ref=github.readme)
 
+<img src="./src/assets/loi-preview.png" alt="Locations of Interest" width="500"/>
+
 During Level 4 lockdown, we started this project to build something that would be useful to ourselves and many others and plug a gap in our COVID-19 response. We found it difficult to find relevant locations of interest in the collection of hundreds. We could search, but as Wellingtonians we often got tired of sifting through "Mount Wellington" locations.
 
 Locations of Interest is a site aimed to help you find the important COVID exposure information you need to know, faster.

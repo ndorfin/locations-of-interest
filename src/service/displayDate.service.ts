@@ -2,7 +2,7 @@ import moment from "moment";
 
 export const displayDate = (input: string, format?: string) => {
   const dateInputFormat = [
-    "DD/MM/YYYY HH:mm",
+    "DD/MM/YYYY HH:mm a",
     "YYYY-MM-DD HH:mm:ss"
   ];
 

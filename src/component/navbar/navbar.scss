@@ -31,13 +31,13 @@
       margin: 0 32px;
 
       &__link {
-        color: #000;
+        color: $colour-black;
         font-weight: 400;
         position: relative;
         text-decoration: none;
 
         &::after {
-          background: black;
+          background: $colour-black;
           bottom: 0;
           content: "";
           height: 0;

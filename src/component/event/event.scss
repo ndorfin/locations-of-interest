@@ -1,3 +1,4 @@
+@import "../../styles/mixins";
 @import "../../styles/vars";
 
 .event {
@@ -13,13 +14,8 @@
   }
 
   &__button {
-    background: #d8d8d8;
-    border: none;
-    border-radius: 4px;
-    color: #000;
-    cursor: pointer;
-    font-weight: normal;
+    @include base-button;
+
     margin: 16px 0 0;
-    padding: 16px;
   }
 }

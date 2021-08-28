@@ -26,8 +26,8 @@
       }
 
       &__input {
-        background: #fafafa;
-        border: 1px solid #d8d8d8;
+        background: $colour-pale-grey;
+        border: 1px solid $colour-border-grey;
         border-radius: 4px;
         box-sizing: border-box;
         height: 38px;
@@ -35,18 +35,18 @@
         width: 100%;
 
         &:focus {
-          background: #fff;
+          background: $colour-white;
         }
       }
 
       &__select {
         &__control {
-          background: #fafafa !important;
+          background: $colour-pale-grey !important;
         }
 
         &__single-value,
         &__placeholder {
-          color: #231f20 !important;
+          color: $colour-black !important;
         }
       }
 
@@ -102,7 +102,7 @@
     &__day {
       &--keyboard-selected {
         background: $theme-colour;
-        color: #000;
+        color: $colour-black;
       }
     }
   }

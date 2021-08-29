@@ -26,16 +26,54 @@ export const SearchCriteria =
 
     const searchUpdateTimeout = React.useRef<any>(null);
 
-    const [searchTermInput, setSearchTermInput] = useState<string>("");
-    const [searchTerm, setSearchTerm] = useState<string>("");
-    const [orderBy, setOrderBy] = useState<OrderBy>(OrderBy.DateAdded);
-    const [regions, setRegions] = useState<string[]>([]);
+    function getSearchCriteriaFromCache<T> (
+      key: string,
+      fallback: T,
+      formatter?: (value: string) => T): T {
+      if (!("localStorage" in window)) return fallback;
+      const localStorageValue = localStorage.getItem("search-criteria");
 
-    const [eventDateFrom, setEventDateFrom] = useState<moment.Moment>(moment().startOf("month"));
-    const [eventDateTo, setEventDateTo] = useState<moment.Moment>(moment());
+      if (localStorageValue) {
+        try {
+          const cacheItems = JSON.parse(localStorageValue);
+          const cacheItem = cacheItems[key];
+          if (!cacheItem) return fallback;
+          if (!formatter) return cacheItem;
+          return formatter(cacheItem);
+        } catch (e) {
+          return fallback;
+        }
+      }
 
-    const [addedDateFrom, setAddedDateFrom] = useState<moment.Moment>(moment().startOf("month"));
-    const [addedDateTo, setAddedDateTo] = useState<moment.Moment>(moment());
+      return fallback;
+    };
+
+    const [searchTermInput, setSearchTermInput] = useState<string>(getSearchCriteriaFromCache("searchTerm", ""));
+    const [searchTerm, setSearchTerm] = useState<string>(getSearchCriteriaFromCache("searchTerm", ""));
+    const [orderBy, setOrderBy] = useState<OrderBy>(getSearchCriteriaFromCache("orderBy", OrderBy.DateAdded));
+    const [regions, setRegions] = useState<string[]>(getSearchCriteriaFromCache("regions", []));
+
+    const [eventDateFrom, setEventDateFrom] = useState<moment.Moment>(
+      getSearchCriteriaFromCache(
+        "eventDateFrom",
+        moment().startOf("month"),
+        (value) => moment(value)));
+    const [eventDateTo, setEventDateTo] = useState<moment.Moment>(
+      getSearchCriteriaFromCache(
+        "eventDateTo",
+        moment().endOf("month"),
+        (value) => moment(value)));
+
+    const [addedDateFrom, setAddedDateFrom] = useState<moment.Moment>(
+      getSearchCriteriaFromCache(
+        "addedDateFrom",
+        moment().startOf("month"),
+        (value) => moment(value)));
+    const [addedDateTo, setAddedDateTo] = useState<moment.Moment>(
+      getSearchCriteriaFromCache(
+        "addedDateTo",
+        moment().endOf("month"),
+        (value) => moment(value)));
 
     React.useImperativeHandle(ref, () => ({
       reset: () => {
@@ -51,7 +89,7 @@ export const SearchCriteria =
     }), []);
 
     React.useEffect(() => {
-      onChange({
+      const searchCriteria = {
         searchTerm,
         orderBy,
         regions,
@@ -59,7 +97,13 @@ export const SearchCriteria =
         eventDateTo,
         addedDateFrom,
         addedDateTo,
-      });
+      };
+
+      onChange(searchCriteria);
+
+      if ("localStorage" in window) {
+        localStorage.setItem("search-criteria", JSON.stringify(searchCriteria));
+      }
     }, [
       searchTerm,
       orderBy,

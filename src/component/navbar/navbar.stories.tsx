@@ -1,17 +1,16 @@
-import * as React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { storiesOf } from "@storybook/react";
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Navbar } from "./navbar.component";
+import { HashRouter } from "react-router-dom";
 
-const stories = storiesOf("Navbar", module).addParameters({
+export default {
+  title: "Navbar",
   component: Navbar,
-});
+  argTypes: {},
+} as ComponentMeta<typeof Navbar>;
 
-stories.add("Default", () => {
-  return (
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
-  );
-});
+export const Default: ComponentStory<typeof Navbar> = () =>
+  <HashRouter>
+    <Navbar />
+  </HashRouter>;
